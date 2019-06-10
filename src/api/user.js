@@ -1,10 +1,9 @@
 import request from '@/utils/request'
 
-export function login(data) {
+export function login(loginParams) {
   return request({
-    url: '/user/login',
-    method: 'post',
-    data
+    url: 'http://localhost:8501/shop/user/login/321/123',
+    method: 'get'
   })
 }
 
