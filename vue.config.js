@@ -36,11 +36,13 @@ module.exports = {
     proxy: {
       // change xxx-api/login => mock/login
       // detail: https://cli.vuejs.org/config/#devserver-proxy
-      [process.env.VUE_APP_BASE_API]: {
-        target: `http://127.0.0.1:${port}/mock`,
+      '/apis': {
+        target: 'http://127.0.0.1:8501/bgshop',
         changeOrigin: true,
         pathRewrite: {
-          ['^' + process.env.VUE_APP_BASE_API]: ''
+          '^/apis': '/apis'
+          // '^/apis': '/apis'   // 这种接口配置出来     http://XX.XX.XX.XX:8083/api/login
+          // '^/apis': '/' 这种接口配置出来     http://XX.XX.XX.XX:8083/login
         }
       }
     },
